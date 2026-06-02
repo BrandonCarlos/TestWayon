@@ -1,4 +1,4 @@
-package com.wayoncompany.wayon.domain.model.exception;
+package com.wayoncompany.wayon.domain.exception;
 
 public class BusinessException extends RuntimeException {
     public BusinessException(String message) {

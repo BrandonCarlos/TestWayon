@@ -1,6 +1,6 @@
 package com.wayoncompany.wayon.domain.model.service;
 
-import com.wayoncompany.wayon.domain.model.exception.BusinessException;
+import com.wayoncompany.wayon.domain.exception.BusinessException;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
