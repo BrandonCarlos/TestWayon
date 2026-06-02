@@ -15,10 +15,10 @@
     </parent>
 
     <groupId>com.challenge</groupId>
-    <artifactId>transfer-scheduler</artifactId>
+    <artifactId>wayon-transfer-scheduler</artifactId>
     <version>1.0.0</version>
 
-    <name>transfer-scheduler</name>
+    <name>Wayon Transfer Scheduler</name>
 
     <properties>
 
