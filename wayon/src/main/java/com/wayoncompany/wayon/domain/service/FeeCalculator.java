@@ -1,4 +1,4 @@
-package com.wayoncompany.wayon.domain.model.service;
+package com.wayoncompany.wayon.domain.service;
 
 import com.wayoncompany.wayon.domain.exception.BusinessException;
 import org.springframework.stereotype.Component;
