@@ -2,9 +2,12 @@ package com.wayoncompany.wayon.entrypoint.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wayoncompany.wayon.application.dto.TransferRequest;
+import com.wayoncompany.wayon.domain.ports.in.GetTransfersUseCase;
+import com.wayoncompany.wayon.domain.ports.in.ScheduleTransferUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.math.BigDecimal;
@@ -21,18 +24,21 @@ public class TransferControllerTest {
     @Autowired
     private ObjectMapper mapper;
 
+    @MockBean
+    private ScheduleTransferUseCase scheduleTransferUseCase;
+
+    @MockBean
+    private GetTransfersUseCase getTransfersUseCase;
+
     @Test
-    void shouldValidateRequest()
-            throws Exception {
+    void shouldValidateRequest() throws Exception {
 
         TransferRequest request =
                 new TransferRequest();
 
-        request.setSourceAccount(
-                "123");
+        request.setSourceAccount("123");
 
-        request.setDestinationAccount(
-                "456");
+        request.setDestinationAccount("456");
 
         request.setAmount(
                 BigDecimal.valueOf(1000));
@@ -42,14 +48,11 @@ public class TransferControllerTest {
 
         mockMvc.perform(
                         post("/api/transfers")
-                                .contentType(
-                                        "application/json")
+                                .contentType("application/json")
                                 .content(
                                         mapper.writeValueAsString(
                                                 request))
                 )
-                .andExpect(
-                        status().isBadRequest()
-                );
+                .andExpect(status().isBadRequest());
     }
 }
